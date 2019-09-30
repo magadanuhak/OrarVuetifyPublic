@@ -6,15 +6,9 @@
       color="amber"
     >
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <span class="title ml-3 mr-5">Google&nbsp;<span class="font-weight-light">Keep</span></span>
-      <v-text-field
-        solo-inverted
-        flat
-        hide-details
-        label="Search"
-        prepend-inner-icon="search"
-      ></v-text-field>
-      <div class="flex-grow-1"></div>
+      <span class="title ml-3 mr-5">Orar&nbsp;<span class="font-weight-light"></span></span>
+      <SearchForm></SearchForm>
+      
     </v-app-bar>
 
     <v-navigation-drawer
@@ -78,7 +72,7 @@
         class="grey lighten-4 fill-height"
       >
         <v-row
-          justify="center"
+          
           align="center"
         >
           <Schedule>
@@ -91,30 +85,32 @@
 
 <script>
   import Schedule from './components/Schedule';
+  import SearchForm from './components/SearchForm';
   export default {
     props: {
       source: String,
     },
     components: {
       Schedule,
+      SearchForm,
     }
 
     ,
     data: () => ({
       drawer: null,
       items: [
-        { icon: 'lightbulb_outline', text: 'Notes' },
-        { icon: 'touch_app', text: 'Reminders' },
+        { icon: ' mdi-lightbulb_outline', text: 'Notes' },
+        { icon: ' mdi-touch_app', text: 'Reminders' },
         { divider: true },
         { heading: 'Labels' },
-        { icon: 'add', text: 'Create new label' },
+        { icon: 'mdi mdi-add', text: 'Create new label' },
         { divider: true },
-        { icon: 'archive', text: 'Archive' },
-        { icon: 'delete', text: 'Trash' },
+        { icon: 'mdi mdi-archive', text: 'Archive' },
+        { icon: 'mdi-delete', text: 'Trash' },
         { divider: true },
-        { icon: 'settings', text: 'Settings' },
-        { icon: 'chat_bubble', text: 'Trash' },
-        { icon: 'help', text: 'Help' },
+        { icon: 'mdi-settings', text: 'Settings' },
+        { icon: 'mdi-delete', text: 'Trash' },
+        { icon: 'mdi-help', text: 'Help' },
         { icon: 'phonelink', text: 'App downloads' },
         { icon: 'keyboard', text: 'Keyboard shortcuts' },
       ],

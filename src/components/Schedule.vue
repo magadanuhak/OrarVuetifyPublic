@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-simple-table  dark>
+    <v-simple-table  light>
       <template v-slot:default>
         <thead>
           <tr>
@@ -25,7 +25,7 @@
                               
                 >
       <div class=" centered-text lesson-name text-field" >{{subgroup.lesson}}</div>
-      <v-card-text class="pb-0 mb-0 classroom text-field"><span v-if="subgroup.lesson"> Auditoriu : {{subgroup.auditorium}}<span></v-card-text>
+      <v-card-text class="pb-0 mb-0 classroom text-field"><span v-if="subgroup.lesson"> Auditoriu : {{subgroup.auditorium}}</span></v-card-text>
       <v-card-text class="group-name text-field">{{subgroup.name}}</v-card-text>
         
     </v-card>
@@ -66,8 +66,7 @@
 
 <script>
 export default {
-  data () {
-    return {
+  data: () => ({
       schedule: [
         {
           subgroup:[
@@ -101,7 +100,7 @@ export default {
         },
        
       ]
-    }
-  }
+    })
+  
 };
 </script>
