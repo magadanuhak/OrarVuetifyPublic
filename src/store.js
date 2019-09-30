@@ -6,6 +6,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     searchResults: []
+  },
+  getters: {
+    getResults: state => state.searchResults;
   },  
   mutations: {
     FETCH_RESULTS(state, results) {

@@ -66,16 +66,12 @@ export default {
   methods: {
     querySelections (v) {
       this.loading = true
-      // Simulated ajax query
-      setTimeout(() => {
-        console.log('search ' + v)
         this.$store.dispatch("fetchResults", { self: this }) 
-        // 
         this.loading = false
-      }, 500)
+      }
     },
     filterResults(){
-      this.items = this.results.filter(e => {
+      this.items = this.this.$store.getters.getResults.filter(e => {
           return (e || '').toLowerCase().indexOf((v || '').toLowerCase()) > -1
         })
     }
