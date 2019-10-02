@@ -7,9 +7,9 @@ export default new Vuex.Store({
   state: {
     searchResults: []
   },
-  getters: {
-    getResults: state => state.searchResults;
-  },  
+  // getters: {
+  //   getResults: state => state.searchResults;
+  // },
   mutations: {
     FETCH_RESULTS(state, results) {
         state.searchResults = results
@@ -25,17 +25,17 @@ export default new Vuex.Store({
         // .catch((error) => {
         //     console.log(error.statusText)
         // }); e corect codu comentat
-        let data = [
-        		{
-        			"name" : "IS31Z",
-        			"type" : "g"
-        		},
-        		{
-        			"name" : "Daniel Maga",
-        			"type" : "p"
-        		}
-        	];
-        commit("FETCH_RESULTS", data );
+        // let data = [
+        // 		{
+        // 			"name" : "IS31Z",
+        // 			"type" : "g"
+        // 		},
+        // 		{
+        // 			"name" : "Daniel Maga",
+        // 			"type" : "p"
+        // 		}
+        // 	];
+        // commit("FETCH_RESULTS", data );
 
     }
   }

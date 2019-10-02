@@ -65,17 +65,17 @@ export default {
   },
   methods: {
     querySelections (v) {
-      this.loading = true
-        this.$store.dispatch("fetchResults", { self: this }) 
-        this.loading = false
+//      this.loading = true
+//        this.$store.dispatch("fetchResults", { self: this })
+//        this.loading = false
       }
     },
     filterResults(){
-      this.items = this.this.$store.getters.getResults.filter(e => {
-          return (e || '').toLowerCase().indexOf((v || '').toLowerCase()) > -1
-        })
+//      this.items = this.this.$store.getters.getResults.filter(e => {
+//          return (e || '').toLowerCase().indexOf((v || '').toLowerCase()) > -1
+//        })
     }
-  },
+
   
 };
 </script>
