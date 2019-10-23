@@ -3,7 +3,7 @@
     <template v-slot:default>
       <thead>
       <tr>
-        <th class="text-left">Zi\Lectie</th>
+        <th class="text-left">Zi</th>
         <th class="text-left">1</th>
         <th class="text-left">2</th>
         <th class="text-left">3</th>
@@ -16,73 +16,82 @@
       </thead>
       <tbody>
       <tr >
-        <td>Luni</td>
-        <td><span class="lessonBox red">P</span></td>
-        <td><span class="lessonBox red">P</span></td>
-        <td><span class="lessonBox red">S</span></td>
-        <td><span class="lessonBox red">P</span></td>
-        <td><span class="lessonBox red">S</span></td>
-        <td><span class="lessonBox red"></span></td>
+        <td>L</td>
+        <td>
+          <v-tooltip top>
+            <template v-slot:activator="{ on }">
+              <v-btn class="lessonBox" light v-on="on">p</v-btn>
+            </template>
+            <span>
+              informatii
+            </span>
+          </v-tooltip>
+        </td>
+        <td><span class="lessonBox ">P</span></td>
+        <td><span class="lessonBox ">S</span></td>
+        <td><span class="lessonBox ">P</span></td>
+        <td><span class="lessonBox ">S</span></td>
+        <td><span class="lessonBox "></span></td>
 
       </tr>
       <tr >
-        <td>Marti</td>
-        <td><span class="lessonBox red">P</span></td>
-        <td><span class="lessonBox red">P</span></td>
-        <td><span class="lessonBox red">S</span></td>
-        <td><span class="lessonBox red">P</span></td>
-        <td><span class="lessonBox red">S</span></td>
-        <td><span class="lessonBox red"></span></td>
+        <td>Ma</td>
+        <td><span class="lessonBox ">P</span></td>
+        <td><span class="lessonBox ">P</span></td>
+        <td><span class="lessonBox ">S</span></td>
+        <td><span class="lessonBox ">P</span></td>
+        <td><span class="lessonBox ">S</span></td>
+        <td><span class="lessonBox "></span></td>
 
       </tr>
       <tr >
-        <td>Miercuri</td>
-        <td><span class="lessonBox red">P</span></td>
-        <td><span class="lessonBox red">P</span></td>
-        <td><span class="lessonBox red">S</span></td>
-        <td><span class="lessonBox red">P</span></td>
-        <td><span class="lessonBox red">S</span></td>
-        <td><span class="lessonBox red"></span></td>
+        <td>Mi</td>
+        <td><span class="lessonBox ">P</span></td>
+        <td><span class="lessonBox ">P</span></td>
+        <td><span class="lessonBox ">S</span></td>
+        <td><span class="lessonBox ">P</span></td>
+        <td><span class="lessonBox ">S</span></td>
+        <td><span class="lessonBox "></span></td>
 
       </tr>
       <tr >
-        <td>Joi</td>
-        <td><span class="lessonBox red">P</span></td>
-        <td><span class="lessonBox red">P</span></td>
-        <td><span class="lessonBox yellow">S</span></td>
-        <td><span class="lessonBox blue">P</span></td>
-        <td><span class="lessonBox red">S</span></td>
-        <td><span class="lessonBox red"></span></td>
+        <td>J</td>
+        <td><span class="lessonBox ">P</span></td>
+        <td><span class="lessonBox ">P</span></td>
+        <td><span class="lessonBox ">S</span></td>
+        <td><span class="lessonBox ">P</span></td>
+        <td><span class="lessonBox ">S</span></td>
+        <td><span class="lessonBox "></span></td>
 
       </tr>
       <tr >
-        <td>Vineri</td>
-        <td><span class="lessonBox red">P</span></td>
-        <td><span class="lessonBox red">P</span></td>
-        <td><span class="lessonBox red">S</span></td>
-        <td><span class="lessonBox red">P</span></td>
-        <td><span class="lessonBox red">S</span></td>
-        <td><span class="lessonBox red"></span></td>
+        <td>V</td>
+        <td><span class="lessonBox ">P</span></td>
+        <td><span class="lessonBox ">P</span></td>
+        <td><span class="lessonBox ">S</span></td>
+        <td><span class="lessonBox ">P</span></td>
+        <td><span class="lessonBox ">S</span></td>
+        <td><span class="lessonBox "></span></td>
 
       </tr>
       <tr >
-        <td>Sambata</td>
-        <td><span class="lessonBox red">P</span></td>
-        <td><span class="lessonBox red">P</span></td>
-        <td><span class="lessonBox red">S</span></td>
-        <td><span class="lessonBox red">P</span></td>
-        <td><span class="lessonBox red">S</span></td>
-        <td><span class="lessonBox red"></span></td>
+        <td>S</td>
+        <td><span class="lessonBox ">P</span></td>
+        <td><span class="lessonBox ">P</span></td>
+        <td><span class="lessonBox ">S</span></td>
+        <td><span class="lessonBox ">P</span></td>
+        <td><span class="lessonBox ">S</span></td>
+        <td><span class="lessonBox "></span></td>
 
       </tr>
       <tr >
-        <td>Duminica</td>
-        <td><span class="lessonBox green">P</span></td>
-        <td><span class="lessonBox orange">P</span></td>
-        <td><span class="lessonBox red">S</span></td>
-        <td><span class="lessonBox red">P</span></td>
-        <td><span class="lessonBox red">S</span></td>
-        <td><span class="lessonBox red"></span></td>
+        <td>D</td>
+        <td><span class="lessonBox ">P</span></td>
+        <td><span class="lessonBox ">P</span></td>
+        <td><span class="lessonBox ">S</span></td>
+        <td><span class="lessonBox ">P</span></td>
+        <td><span class="lessonBox ">S</span></td>
+        <td><span class="lessonBox "></span></td>
 
       </tr>
       </tbody>
@@ -94,9 +103,9 @@
     background:red;
   }
   .lessonBox{
-    margin:0;
-    color:white;
-    backround: yellow;
+    padding:1px;
+
+
   }
 </style>
 

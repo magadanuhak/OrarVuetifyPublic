@@ -70,34 +70,32 @@ export default {
 
   },
   methods: {
-      generateWeeks(semester){
-          let startDate = new Date(this.startDate[semester]);
-          for(let i = 0; i < 23; i++ ){
-              let date = this.addWeeks(startDate, i);
-              let formatedDate =  date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
-              console.log(formatedDate + " - " + i);
-//                this.weeks.push(
-//                    {
-//
-//                    }
-//                );
-          }
-      },
-      addWeeks(dt, n){
-              return new Date(dt.setDate(dt.getDate() + (n * 7)));
-      },
-      getSemester(){
-          let semester = 1;
-          let currentDate =  new Date();
-          let semester2Date = new Date(this.startDate.semester2);
-          console.log(semester2Date);
-          console.log();
-          console.log(currentDate);
-          if( +currentDate >=  +semester2Date) {
-              semester = 2;
-          }
-          return semester;
-      }
+      // generateWeeks(semester){
+      //     let startDate = new Date(this.startDate[semester]);
+      //     for(let i = 0; i < 23; i++ ){
+      //         let date = this.addWeeks(startDate, i);
+      //         let formatedDate =  date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+      //         console.log(date + ' - ' + formatedDate);
+      //          this.weeks.push(
+      //              formatedDate + " - " + (parseInt(i)+1)
+      //          );
+      //     }
+      // },
+      // addWeeks(dt, n){
+      //         return new Date(dt.setDate(dt.getDate() + (n * 7)));
+      // },
+      // getSemester(){
+      //     let semester = 1;
+      //     let currentDate =  new Date();
+      //     let semester2Date = new Date(this.startDate.semester2);
+      //     console.log(semester2Date);
+      //     console.log();
+      //     console.log(currentDate);
+      //     if( +currentDate >=  +semester2Date) {
+      //         semester = 2;
+      //     }
+      //     return semester;
+      // }
   },
   computed:{
 

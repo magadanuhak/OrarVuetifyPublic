@@ -5,17 +5,12 @@
         solo-inverted
         flat
         hide-details
-        :items="searchResults"
-        :loading="loadingPersons"
-        :search-input.sync="search"
-        hide-no-data
+        v-bind:items="searchResults"
+        :loading="loading"
         clearable
-        cache-items
-        hide-no-data
-        hide-details
-        return-object
         item-text="name"
         item-value="id"
+        cache-items
         label="Cauta"
         prepend-inner-icon="mdi-search"
       >
@@ -30,14 +25,14 @@
   .lesson-name{
     font-size:16px;
     margin-top:2px;
-    
+
     font-weight:800;
   }
   .group-name{
     font-size:16px;
   }
   .classroom{
-    
+
   }
   .text-field{
     padding:2px;
@@ -53,29 +48,28 @@
 export default {
   data: () => ({
       searchText: '',
+      searchResults: [],
       results: [],
       search: null,
       loading: false,
 
     }),
-  watch: {
-    search (val) {
-      val && val !== this.select && this.querySelections(val)
-    },
-  },
-  methods: {
-    querySelections (v) {
-//      this.loading = true
-//        this.$store.dispatch("fetchResults", { self: this })
-//        this.loading = false
-      }
-    },
-    filterResults(){
-//      this.items = this.this.$store.getters.getResults.filter(e => {
-//          return (e || '').toLowerCase().indexOf((v || '').toLowerCase()) > -1
-//        })
+    created() {
+        let res = this;
+        this.loading = true;
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // Typical action to be performed when the document is ready:
+                res.searchResults =JSON.parse(xhttp.responseText).data;
+                console.log(JSON.parse(xhttp.responseText).data);
+                res.loading = false
+            }
+        };
+        xhttp.open("GET", "http://127.0.0.1:8000/api/names", true);
+        xhttp.send();
+
     }
 
-  
 };
 </script>

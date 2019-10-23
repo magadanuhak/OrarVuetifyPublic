@@ -5,38 +5,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    searchResults: []
+    searchText: ''
   },
-  // getters: {
-  //   getResults: state => state.searchResults;
-  // },
+  getters: {
+    getSearchText: state => state.searchText
+  },
   mutations: {
-    FETCH_RESULTS(state, results) {
-        state.searchResults = results
+    FETCH_RESULTS(state, searchText) {
+        state.searchText = searchText
     }
   },
-  actions: {
-    fetchResults({ commit }, { self })  {         
-        // Vue.http.get("http://ok.api.md?name=" + self.searchText )
-        // .then((response) => {
-        //     commit("FETCH_RESULTS", response.body);
-        //     self.filterResults();
-        // })
-        // .catch((error) => {
-        //     console.log(error.statusText)
-        // }); e corect codu comentat
-        // let data = [
-        // 		{
-        // 			"name" : "IS31Z",
-        // 			"type" : "g"
-        // 		},
-        // 		{
-        // 			"name" : "Daniel Maga",
-        // 			"type" : "p"
-        // 		}
-        // 	];
-        // commit("FETCH_RESULTS", data );
-
-    }
-  }
 })

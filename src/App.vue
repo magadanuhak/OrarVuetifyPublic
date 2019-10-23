@@ -8,9 +8,7 @@
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <span class="title ml-3 mr-5">Orar&nbsp;<span class="font-weight-light"></span></span>
       <SearchForm></SearchForm>
-      
     </v-app-bar>
-
     <v-navigation-drawer
       :width="425"
       v-model="drawer"
@@ -25,15 +23,12 @@
         </Calendar>
       </v-container>
     </v-navigation-drawer>
-
     <v-content>
       <v-container
         fluid
         class="grey lighten-4 "
       >
-        <v-row
-
-        >
+        <v-row>
           <Schedule>
           </Schedule>
         </v-row>
@@ -56,22 +51,22 @@
       SearchForm,
       SetupPannel,
       Calendar,
-    }
-
-    ,
-    methods: {
-
-
-
-
     },
     data: () => ({
       drawer: null,
-
+      scheduleDate: null,
+      scheduleSemester: null,
+      scheduleWeek: null,
+      schedule: {
+          "name" : null,
+          "type" : null,
+      }
     }),
-      mounted(){
-
-    },
+    created() {
+        if(localStorage.hasOwnProperty('schedule')) {
+            this.schedule = JSON.parse(localStorage.getItem('schedule'));
+        }
+    }
   }
 </script>
 
