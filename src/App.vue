@@ -7,7 +7,7 @@
     >
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <span class="title ml-3 mr-5">Orar&nbsp;<span class="font-weight-light"></span></span>
-      <SearchForm></SearchForm>
+      <SearchForm :getScheduleForDay="getScheduleForDay"></SearchForm>
     </v-app-bar>
     <v-navigation-drawer
       :width="425"
@@ -38,36 +38,52 @@
 </template>
 
 <script>
-  import Schedule from './components/Schedule';
-  import SearchForm from './components/SearchForm';
-  import SetupPannel from './components/SetupPannel';
-  import Calendar from './components/Calendar.vue';
-  export default {
-    props: {
-      source: String,
-    },
-    components: {
-      Schedule,
-      SearchForm,
-      SetupPannel,
-      Calendar,
-    },
-    data: () => ({
-      drawer: null,
-      scheduleDate: null,
-      scheduleSemester: null,
-      scheduleWeek: null,
-      schedule: {
-          "name" : null,
-          "type" : null,
-      }
-    }),
-    created() {
-        if(localStorage.hasOwnProperty('schedule')) {
-            this.schedule = JSON.parse(localStorage.getItem('schedule'));
+import Schedule from './components/Schedule'
+import SearchForm from './components/SearchForm'
+import SetupPannel from './components/SetupPannel'
+import Calendar from './components/Calendar.vue'
+export default {
+  props: {
+    source: String
+  },
+  components: {
+    Schedule,
+    SearchForm,
+    SetupPannel,
+    Calendar
+  },
+  data: () => ({
+    drawer: null,
+    scheduleDate: null,
+    currentSchedule: null,
+    semester: 1,
+    week: 1,
+    week_day: 1,
+    schedule: {
+      'name': null,
+      'type': null
+    }
+  }),
+  created () {
+    if (localStorage.hasOwnProperty('schedule')) {
+      this.schedule = JSON.parse(localStorage.getItem('schedule'))
+    }
+  },
+  methods: {
+    getScheduleForDay (id) {
+      let res = this
+      let xhttp = new XMLHttpRequest()
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          localStorage.setItem('current_schedule', xhttp.responseText)
+          res.loading = false
         }
+      }
+      xhttp.open('GET', localStorage.getItem('api') + '/schedule/' + id + '/semester/' + this.semester + '/week/' + this.week + '/week_day/' + this.week_day, true)
+      xhttp.send()
     }
   }
+}
 </script>
 
 <style>
@@ -75,5 +91,3 @@
   display: none
 }
 </style>
-
-

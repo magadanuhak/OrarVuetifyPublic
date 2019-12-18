@@ -46,67 +46,37 @@
 <script>
 export default {
   data: () => ({
-      year : 2019 ,
-      weeks: [],
-      days: [
-          "Luni",
-          "Marți",
-          "Miercuri",
-          "Joi",
-          "Vineri",
-          "Sîmbătă",
-          "Duminică"
-      ],
-      semesters:[
-          1,
-          2
-      ],
-      startDate: {
-          semester1:"",
-          semester2:"",
-      },
-    }),
+    year: 2019,
+    weeks: [
+      '1 - 12.11.2019',
+      '2 - 17.11.2019',
+      '3 - 25.11.2019'
+    ],
+    days: [
+      'Luni',
+      'Marți',
+      'Miercuri',
+      'Joi',
+      'Vineri',
+      'Sîmbătă',
+      'Duminică'
+    ],
+    semesters: [
+      1,
+      2
+    ]
+  }),
   watch: {
 
   },
   methods: {
-      // generateWeeks(semester){
-      //     let startDate = new Date(this.startDate[semester]);
-      //     for(let i = 0; i < 23; i++ ){
-      //         let date = this.addWeeks(startDate, i);
-      //         let formatedDate =  date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
-      //         console.log(date + ' - ' + formatedDate);
-      //          this.weeks.push(
-      //              formatedDate + " - " + (parseInt(i)+1)
-      //          );
-      //     }
-      // },
-      // addWeeks(dt, n){
-      //         return new Date(dt.setDate(dt.getDate() + (n * 7)));
-      // },
-      // getSemester(){
-      //     let semester = 1;
-      //     let currentDate =  new Date();
-      //     let semester2Date = new Date(this.startDate.semester2);
-      //     console.log(semester2Date);
-      //     console.log();
-      //     console.log(currentDate);
-      //     if( +currentDate >=  +semester2Date) {
-      //         semester = 2;
-      //     }
-      //     return semester;
-      // }
   },
-  computed:{
+  computed: {
 
-  },
-  mounted(){
+  }
+  // ,
+  // mounted () {
+  // }
 
-      this.year = new Date().getFullYear();
-      this.startDate.semester1 =  this.year + "-09-01";
-      this.startDate.semester2 = (parseInt(this.year) + 1) + "-02-03";
-      this.generateWeeks("semester"+ this.getSemester());
-  },
-
-};
+}
 </script>

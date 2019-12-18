@@ -13,6 +13,7 @@
         cache-items
         label="Cauta"
         prepend-inner-icon="mdi-search"
+        :change="getScheduleForDay(this.searchText)"
       >
     </v-autocomplete>
     <div class="flex-grow-1"></div>
@@ -46,30 +47,35 @@
 
 <script>
 export default {
-  data: () => ({
-      searchText: '',
-      searchResults: [],
-      results: [],
-      search: null,
-      loading: false,
-
-    }),
-    created() {
-        let res = this;
-        this.loading = true;
-        let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                // Typical action to be performed when the document is ready:
-                res.searchResults =JSON.parse(xhttp.responseText).data;
-                console.log(JSON.parse(xhttp.responseText).data);
-                res.loading = false
-            }
-        };
-        xhttp.open("GET", "http://127.0.0.1:8000/api/names", true);
-        xhttp.send();
-
+  props: {
+    getScheduleForDay: {
+      type: Function,
+      required: true
     }
+  },
+  data: () => ({
+    searchText: '',
+    searchResults: [],
+    results: [],
+    search: null,
+    loading: false
 
-};
+  }),
+  created () {
+    let res = this
+    this.loading = true
+    let xhttp = new XMLHttpRequest()
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        // Typical action to be performed when the document is ready:
+        res.searchResults = JSON.parse(xhttp.responseText)
+        // console.log(JSON.parse(xhttp.responseText))
+        res.loading = false
+      }
+    }
+    xhttp.open('GET', localStorage.getItem('api') + '/names', true)
+    xhttp.send()
+  }
+
+}
 </script>
