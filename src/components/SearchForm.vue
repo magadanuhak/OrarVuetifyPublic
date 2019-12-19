@@ -13,7 +13,7 @@
         cache-items
         label="Cauta"
         prepend-inner-icon="mdi-search"
-        :change="getScheduleForDay(this.searchText)"
+        :select="this.setID(this.searchText)"
       >
     </v-autocomplete>
     <div class="flex-grow-1"></div>
@@ -47,12 +47,7 @@
 
 <script>
 export default {
-  props: {
-    getScheduleForDay: {
-      type: Function,
-      required: true
-    }
-  },
+
   data: () => ({
     searchText: '',
     searchResults: [],
@@ -61,6 +56,14 @@ export default {
     loading: false
 
   }),
+  methods: {
+    setID (id) {
+      this.$store.commit('updateID', id)
+    },
+    getFromStore () {
+      return this.$store.state.id
+    }
+  },
   created () {
     let res = this
     this.loading = true
@@ -69,7 +72,6 @@ export default {
       if (this.readyState == 4 && this.status == 200) {
         // Typical action to be performed when the document is ready:
         res.searchResults = JSON.parse(xhttp.responseText)
-        // console.log(JSON.parse(xhttp.responseText))
         res.loading = false
       }
     }

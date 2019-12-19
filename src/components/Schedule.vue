@@ -64,12 +64,31 @@
 </style>
 
 <script>
+import Vue from 'vue'
+
 export default {
   data: () => ({
-    schedule: null
+    schedule: {}
   }),
   mounted () {
-    this.schedule = JSON.parse(localStorage.getItem('schedule'))
+    this.$store.watch(
+      (state, getters) => getters.getID,
+      (newValue, oldValue) => {
+        console.log(`Updating from ${oldValue} to ${newValue}`)
+        this.$store.dispatch('fetchApi')
+      }
+    )
+    this.$store.watch(
+      (state, getters) => getters.getSchedule,
+      (newValue, oldValue) => {
+        this.schedule = this.getSchedule()
+      }
+    )
+  },
+  methods: {
+    getSchedule () {
+      return JSON.parse(this.$store.state.schedule)
+    }
   }
 
 }

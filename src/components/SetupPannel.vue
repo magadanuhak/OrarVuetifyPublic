@@ -64,7 +64,10 @@ export default {
     semesters: [
       1,
       2
-    ]
+    ],
+    semester: 1,
+    week: 1,
+    week_day: 1
   }),
   watch: {
 
@@ -73,10 +76,12 @@ export default {
   },
   computed: {
 
+  },
+  mounted () {
+    this.$store.commit('updateSemester', this.semester)
+    this.$store.commit('updateWeek', this.week)
+    this.$store.commit('updateWeekDay', this.week_day)
   }
-  // ,
-  // mounted () {
-  // }
 
 }
 </script>

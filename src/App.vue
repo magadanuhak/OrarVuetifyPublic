@@ -7,7 +7,7 @@
     >
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <span class="title ml-3 mr-5">Orar&nbsp;<span class="font-weight-light"></span></span>
-      <SearchForm :getScheduleForDay="getScheduleForDay"></SearchForm>
+      <SearchForm ></SearchForm>
     </v-app-bar>
     <v-navigation-drawer
       :width="425"
@@ -65,23 +65,12 @@ export default {
     }
   }),
   created () {
-    if (localStorage.hasOwnProperty('schedule')) {
-      this.schedule = JSON.parse(localStorage.getItem('schedule'))
-    }
+    // if (localStorage.hasOwnProperty('schedule')) {
+    //   this.schedule = JSON.parse(localStorage.getItem('schedule'))
+    // }
   },
   methods: {
-    getScheduleForDay (id) {
-      let res = this
-      let xhttp = new XMLHttpRequest()
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-          localStorage.setItem('current_schedule', xhttp.responseText)
-          res.loading = false
-        }
-      }
-      xhttp.open('GET', localStorage.getItem('api') + '/schedule/' + id + '/semester/' + this.semester + '/week/' + this.week + '/week_day/' + this.week_day, true)
-      xhttp.send()
-    }
+
   }
 }
 </script>
